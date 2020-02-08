@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Plantilla de la práctica final!</h1>
+        <h1>Reactify</h1>
         <p>
           Esta plantilla contiene todo lo necesario para comenzar a
           desarrollar la práctica final. Antes de comenzar a desarrollar,
