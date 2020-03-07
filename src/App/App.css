@@ -1,3 +1,9 @@
+body {
+  background: #C6FFDD;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+
 .App {
   margin: 3em auto;
   max-width: 50em;
@@ -5,4 +11,114 @@
 
 .App h1 {
   text-align: center;
+}
+
+.App h1.title {
+  background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  color: red;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: bold;
+  font-size: 100px;
+  font-family: arial, helvetica;
+  width: 600px;
+  margin: 50px auto 10px;
+  text-align: center;
+}
+
+.App nav {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.App nav ul {
+  padding: 0px;
+}
+
+.App nav li {
+  list-style: none;
+  display: inline;
+  margin-left: 2px;
+  float: left;
+  border: 1px solid black;
+  border-radius: 6px;
+  overflow:hidden;
+  background-color: #2175bc;
+}
+
+.App nav li a {
+  text-decoration: none;
+  font-size: 16px;
+  text-decoration: none;
+  float: left;
+  padding: 15px;
+
+  color: #fff;
+}
+
+.App nav li:hover, .App nav li a.active {
+  background-color: #2586d7;
+}
+
+.App .content {
+  display: block;
+  clear: both;
+  padding: 10px;
+}
+
+.App audio {
+  width: 100%;
+}
+
+.blinker{
+  text-align: right;
+  padding-right: 20%;
+  float: right;
+  color: darkmagenta;
+  font-size: 30px;
+  animation: blinker 1.4s infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.albums {
+  display: block;
+  width: 100%;
+  float: left;
+}
+
+.album {
+  width: 28%;
+  display: inline-block;
+  margin: 0 4% 4% 0;
+}
+
+.album img {
+  width: 100%;
+}
+
+.album_info {
+  margin-top: -75px;
+  color: white;
+  position: relative;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.album_info .name {
+  padding: 10px 10px 5px 10px;
+  font-weight: bold;
+  color: navajowhite;
+}
+
+.album_info .artist {
+  font-style: italic;
+  padding: 10px;
+  text-align: right;
 }
