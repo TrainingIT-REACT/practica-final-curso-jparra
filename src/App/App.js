@@ -1,4 +1,14 @@
 import React, { Component } from 'react';
+import { Provider } from "react-redux";
+import { BrowserRouter as Router} from "react-router-dom";
+
+// Store
+import store from './store';
+
+// Components
+import  AppMenu from './Components/menu/Menu';
+import Reproductor from './Components/Reproductor'
+import Albums from './Components/album/Albums'
 
 // Css
 import './App.css';
@@ -13,7 +23,7 @@ class App extends Component {
     }
   }
 
-  async componentDidMount() {
+  async componentDidMount(dispatch) {
     try {
       const res = await fetch('/albums');
       const json = await res.json();
@@ -27,33 +37,34 @@ class App extends Component {
     }
   }
 
+  albumDestacados = (albums) => {
+    return albums.slice(0, 3);
+  };
+
   render() {
+
     return (
-      <div className="App">
-        <h1>Reactify</h1>
-        <p>
-          Esta plantilla contiene todo lo necesario para comenzar a
-          desarrollar la práctica final. Antes de comenzar a desarrollar,
-          lee la documentación de la práctica y el fichero README.md de
-          este repositorio.
-        </p>
-        <h2>Servidor de desarrollo</h2>
-        <p>
-          El proyecto está preconfigurado con un servidor de desarrollo basado
-          en json-server:
-        </p>
-          { this.state.loading ?
-            <p>Cargando...</p>
-            : <ul>
-              {this.state.albums.map(album => <li key={album.id}>{album.name}</li>)}
-            </ul>
-          }
-        <h2>¿Dudas?</h2>
-        <p>
-          No olvides pasarte por el foro si tienes alguna duda sobre la práctica final
-          o la plantilla :).
-        </p>
-      </div>
+    <Provider store={store}>
+      <Router>
+
+        <div className="App">
+          <h1 className="title">Reactify</h1>
+          <span className="blinker">Premium</span>
+          <AppMenu />
+          <h2>Albums destacados</h2>
+            { 
+            this.state.loading ?
+              <p>Cargando...</p>
+              : 
+              <Albums list={this.albumDestacados(this.state.albums)} />
+            }
+        </div>
+        <div className="App">
+          <Reproductor />
+        </div>
+
+      </Router>
+    </Provider>
     );
   }
 }
