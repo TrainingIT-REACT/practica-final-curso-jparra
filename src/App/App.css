@@ -122,3 +122,42 @@ body {
   padding: 10px;
   text-align: right;
 }
+
+.album_detail {
+  display: inline-block;
+}
+
+.album_detail  h3 {
+  text-decoration: underline;
+}
+
+.album_detail  ul {
+  float: left;
+  margin: 0;
+}
+
+.album_detail img {
+  max-width: 100%;
+  border: 5px solid;
+  border-color: darkorange;
+}
+
+.album_detail .album_cover {
+  width: 30%;
+  float: left;
+  margin-right: 30px;
+}
+
+.singleSong {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
+
+.active_song li {
+  display: block;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  padding: 20px;
+}
