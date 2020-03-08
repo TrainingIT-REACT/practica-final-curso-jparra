@@ -21,7 +21,7 @@ const AppMenu = () => {
                 </nav>
                 <Route path="/" exact component={Home}/>
                 <Route path="/albums" exact component={Albums}/>
-                <Route path="/album/:id" exact component={AlbumDetails}/>
+                <Route path="/album/:id" component={AlbumDetails}/>
                 <Route path="/login" exact component={Login}/>
                 <PrivateRoute path="/admin" exact component={Admin}/>
             </div>

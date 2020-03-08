@@ -1,9 +1,11 @@
 import types from '../actions/types';
+import { getAlbum } from '../actions/albums';
 
 // Estado inicial
 const initialState = {
   isLoading: false,
   albums: [],
+  album: {},
   error: false,
   count: 0
 }
@@ -39,6 +41,25 @@ const reducer = (state = initialState, action) => {
     case types.ALBUMS_ERROR:
       // Desactivamos la flag de carga y
       // activamos la de error
+      return {
+        ...state,
+        isLoading: false,
+        error: true
+      }
+      case String(getAlbum.pending):
+      return {
+        ...state,
+        isLoading: true,
+        error: false
+      };
+    case String(getAlbum.fulfilled):
+      return {
+        ...state,
+        isLoading: false,
+        album: action.payload,
+        error: false
+      }
+    case String(getAlbum.rejected):
       return {
         ...state,
         isLoading: false,

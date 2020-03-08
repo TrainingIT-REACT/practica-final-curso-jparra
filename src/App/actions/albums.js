@@ -1,4 +1,5 @@
 import types from './types';
+import { createAsyncAction} from "redux-promise-middleware-actions";
 
 const albumsLoading = () => ({
   type: types.ALBUMS_LOADING
@@ -17,6 +18,7 @@ const countAlbums = () => ({
   type: types.ALBUMS_COUNT
 })
 
+// Acciones con Thunk
 export const getAlbums = () => async (dispatch) => {
   dispatch(albumsLoading());
   try {
@@ -30,3 +32,10 @@ export const getAlbums = () => async (dispatch) => {
     dispatch(albumsError());
   }
 };
+
+// Acciones con promise
+export const getAlbum = createAsyncAction("ALBUM", async (id) => {
+  const res = await fetch(`/albums/${id}`);
+  return await res.json();
+});
+
